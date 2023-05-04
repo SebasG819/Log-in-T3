@@ -1,20 +1,19 @@
-
 export enum Attribut {
-    "btn_img" = "btn_img",
-    "name" = "name",
+    "text" = "text"
+    
     
 }
 
-class BtnLog extends HTMLElement {
-    btn_img?: string;
-    name?: string;
+class Btnpass extends HTMLElement {
+    text?: string;
+    
     
     
     static get observedAttributes() {
         const attrs: Record<Attribut, null> = {
         
-            btn_img: null,
-            name: null
+            text: null,
+            
             
         };
         return Object.keys(attrs);
@@ -47,14 +46,13 @@ class BtnLog extends HTMLElement {
         render() {
             if (this.shadowRoot) {
                 this.shadowRoot.innerHTML = `
-                <link rel="stylesheet" href="./components/Side-profile/scard.css">
                 <section>
-                <button><img src="${this.btn_img}">${this.name}</button>
+                <input type="button">
                 </section>
                 `;
             }
         }
     }
     
-customElements.define("btn-log", BtnLog);
-export default BtnLog;
+customElements.define("btn-pass", Btnpass);
+export default Btnpass;

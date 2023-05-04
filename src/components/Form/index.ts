@@ -1,11 +1,10 @@
-
 export enum Attribut {
     "btn_img" = "btn_img",
     "name" = "name",
     
 }
 
-class BtnLog extends HTMLElement {
+class Text_up extends HTMLElement {
     btn_img?: string;
     name?: string;
     
@@ -46,15 +45,14 @@ class BtnLog extends HTMLElement {
         
         render() {
             if (this.shadowRoot) {
-                this.shadowRoot.innerHTML = `
-                <link rel="stylesheet" href="./components/Side-profile/scard.css">
-                <section>
-                <button><img src="${this.btn_img}">${this.name}</button>
-                </section>
-                `;
+                this.shadowRoot.innerHTML = ``;
+                const container = this.ownerDocument.createElement("section")
+
+                
+                const text = this.ownerDocument.createElement("section")
             }
         }
     }
     
-customElements.define("btn-log", BtnLog);
-export default BtnLog;
+customElements.define("form-log", Text_up);
+export default Text_up;
