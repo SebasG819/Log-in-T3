@@ -1,4 +1,5 @@
 import "./components/export"
+import "./components/Form/index"
 
 class AppContainer extends HTMLElement {
     constructor(){
@@ -11,7 +12,7 @@ class AppContainer extends HTMLElement {
     }
 
     render() {
-        const something = this.ownerDocument.createElement('div');
+        const something = this.ownerDocument.createElement('form-log');
         this.shadowRoot?.appendChild(something);
     }
 }

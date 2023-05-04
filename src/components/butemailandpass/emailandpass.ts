@@ -1,18 +1,20 @@
-export enum Attribut {
-    "text" = "text"
+export enum Attribu {
+    "text" = "text",
+    "tittle" = "tittle"
     
     
 }
 
 class Btnpass extends HTMLElement {
     text?: string;
-    
+    tittle?: string;
     
     
     static get observedAttributes() {
-        const attrs: Record<Attribut, null> = {
+        const attrs: Record<Attribu, null> = {
         
             text: null,
+            tittle: null
             
             
         };
@@ -29,7 +31,7 @@ class Btnpass extends HTMLElement {
     }
     
     attributeChangedCallback(
-        propName: Attribut,
+        propName: Attribu,
         _: string | undefined,
         newValue: string | undefined
         ) {
@@ -47,7 +49,8 @@ class Btnpass extends HTMLElement {
             if (this.shadowRoot) {
                 this.shadowRoot.innerHTML = `
                 <section>
-                <input type="button">
+                <h3>${this.tittle}</h3>
+                <input type="button" placeholder = "${this.text}">
                 </section>
                 `;
             }

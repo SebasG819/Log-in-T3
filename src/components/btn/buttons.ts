@@ -5,7 +5,7 @@ export enum Attribut {
     
 }
 
-class BtnLog extends HTMLElement {
+class Btnsec extends HTMLElement {
     btn_img?: string;
     name?: string;
     
@@ -56,5 +56,5 @@ class BtnLog extends HTMLElement {
         }
     }
     
-customElements.define("btn-log", BtnLog);
-export default BtnLog;
+customElements.define("btn-sec", Btnsec);
+export default Btnsec;
