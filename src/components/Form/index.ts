@@ -3,6 +3,11 @@ import "../export"
 import { pdata } from "../../services/Databtn";
 import { Attribut } from "../btn/buttons";
 import  { attr } from "../butemailandpass/emailandpass";
+import "../buttonlogin/buttlogin"
+import "../butemailandpass/emailandpass"
+
+
+
 
 export class FormLog extends HTMLElement {
     
@@ -34,10 +39,14 @@ export class FormLog extends HTMLElement {
                 Check.innerText = "Check your followers' new plays"
                 container.appendChild(Check)
 
+                const img = this.ownerDocument.createElement("img")
+            img.src= "../../image/Logito"
+            container.appendChild(img)
+
 
                 pdata.forEach((dat) => {
                     const buttonsess = this.ownerDocument.createElement("btn-sec");
-                    buttonsess.setAttribute(Attribut.btn_img, dat.btn_img)
+                   
                     buttonsess.setAttribute(Attribut.name, dat.name)
                     container.appendChild(buttonsess)
 
@@ -46,16 +55,11 @@ export class FormLog extends HTMLElement {
                 })
 
 
-
-
+                
+                
         
 
-                const Notregis = this.ownerDocument.createElement("h5")
-                Notregis.innerText = "Not registered yet?"
                 
-
-                const Notaccount = this.ownerDocument.createElement("h5")
-                Notaccount.innerText = "Create an Account"
                 
 
                 const ema = this.ownerDocument.createElement("h4")
@@ -68,20 +72,54 @@ export class FormLog extends HTMLElement {
                 container.appendChild(email)
 
                 const pass = this.ownerDocument.createElement("h4")
-                pass.innerText = "password"
+                pass.innerText = "Password"
                 container.appendChild(pass)
+                
 
                 const password = this.ownerDocument.createElement("email-pass")
-                password.setAttribute(attr.placeholder, "password")
+                password.setAttribute(attr.placeholder, "Password")
                 password.setAttribute(attr.type, "password")
                 container.appendChild(password)
 
+                
+
+               
+                
+
 
             
-                
+                const sec = this.ownerDocument.createElement("section")
+                sec.className = "section2"
                 this.shadowRoot?.appendChild(container)
-                container.appendChild(Notregis)
-                container.appendChild(Notaccount)
+                const button = this.ownerDocument.createElement("my-butlogin");
+                 button.className = "btn"
+                 container.appendChild(button)
+
+                container.appendChild(sec)
+
+                const sec3 = this.ownerDocument.createElement("section")
+                sec.className = "section3"
+
+
+                
+
+                 
+            
+                
+
+                 const Notregis = this.ownerDocument.createElement("h5")
+                 Notregis.innerText = "Not registered yet?"
+                 Notregis.className = "Notregis"
+                 sec.appendChild(Notregis)
+                 
+ 
+                 const Notaccount = this.ownerDocument.createElement("h5")
+                 Notaccount.innerText = "Create an Account"
+                 Notaccount.className = "Notaccount"
+                 sec.appendChild(Notaccount)
+                
+                 
+                 
                 
                 
 

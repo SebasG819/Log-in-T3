@@ -1,5 +1,7 @@
 import "./components/export"
 import "./components/Form/index"
+import "./components/Register/form2"
+
 
 class AppContainer extends HTMLElement {
     constructor(){

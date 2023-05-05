@@ -1,62 +1,32 @@
-// import styles from "./infoinputs.css"
+import styles from "./butlog.css"
 
-// export enum  attribute{
-//     "text"="text",
-//     "type"="type",
-//      "img" = "img"
-// }
+ class butlogin extends HTMLElement{
 
-// export default class Btnreg extends HTMLElement{
-//     text?: string;
-//     type?:string
-//     img? :string
+    constructor(){
+        super();
+        this.attachShadow({mode:"open"})
+    }
 
-//     static get observedAttributes(){
-//         const attrs: Record<attribute, null> = {
-//             text: null,
-//             type: null,
-//             img : null
-//         }
-//         return Object.keys(attrs)
-//     }
+    connectedCallback(){
+        this.render()
+    }
 
-//     attributeChangedCallback(
-//         propName:attribute,
-//         _:unknown,
-//         newValue:string,
-//     ){
-//         switch (propName) {
-//             default:
-//                 this[propName] = newValue
-//                 break;
-//         }
-//     }
-//     constructor(){
-//         super();
-//         this.attachShadow({mode:"open"});
-//     }
+    render(){
+        if(this.shadowRoot){
+            this.shadowRoot.innerHTML =  "";
 
-//     connectedCallback(){
-//         this.render()
-//     }
+            const edit = this.ownerDocument.createElement("style");
+                edit.innerHTML = styles
+                this.shadowRoot?.appendChild(edit);
+            
 
-//     render(){
-//         if(this.shadowRoot){ 
-//         this.shadowRoot.innerHTML = '';
+            const button= this.ownerDocument.createElement("button");
+            button.innerText = "Iniciar sesión"
 
-//         const css = this.ownerDocument.createElement('style')
-//         css.innerHTML = styles
-//         this.shadowRoot?.appendChild(css)
+            this.shadowRoot?.appendChild(button)
+        }
+    }
+}
 
-//         const input = this.ownerDocument.createElement('input');
-//         input.placeholder = ${this.text};
-//         input.type = ${this.type};
-
-//         this.shadowRoot?.appendChild(input)
-//         }
-//     }
-
-// }
-
-    
-// customElements.define("btn-reg", Btnreg);
+customElements.define("my-butlogin",butlogin);
+export default butlogin;

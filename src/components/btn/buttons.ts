@@ -1,19 +1,19 @@
 import styles from "./button.css"
 export enum Attribut {
-    "btn_img" = "btn_img",
+    
     "name" = "name",
     
 }
 
 class Btnsec extends HTMLElement {
-    btn_img?: string;
+    
     name?: string;
     
     
     static get observedAttributes() {
         const attrs: Record<Attribut, null> = {
         
-            btn_img: null,
+            
             name: null
             
         };
@@ -49,7 +49,7 @@ class Btnsec extends HTMLElement {
                 this.shadowRoot.innerHTML = `
                 
                 <section>
-                <button><img src="${this.btn_img}">${this.name}</button>
+                <button>${this.name}</button>
                 </section>
                 `;
                 const css = this.ownerDocument.createElement("style")

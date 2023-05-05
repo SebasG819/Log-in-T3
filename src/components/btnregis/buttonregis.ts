@@ -1,16 +1,16 @@
-import styles from "./input.css"
-export enum attr {
+import styles from "./input.css";
+export enum att {
     "placeholder" = "placeholder",
     "type" = "type",
 }
 
-  class emailandpass extends HTMLElement{
+  class regist extends HTMLElement{
     placeholder?: string;
     type?: string;
 
 
 static get observedAttributes() {
-    const attr: Record<attr,null> ={
+    const attr: Record<att,null> ={
 
         placeholder: null,
         type: null,
@@ -21,7 +21,7 @@ static get observedAttributes() {
 
 
 attributeChangedCallback(
-    propName: attr,
+    propName: att,
     _: string | undefined,
     newValue: string | undefined
     ) {
@@ -46,14 +46,15 @@ attributeChangedCallback(
         if(this.shadowRoot){
             this.shadowRoot.innerHTML= "";
 
-            const css = this.ownerDocument.createElement("style")
-                css.innerHTML = styles
-                this.shadowRoot?.appendChild(css)
-
-            const log = this.ownerDocument.createElement("input")
-            log.placeholder = `${this.placeholder}`
-            log.type = `${this.type}`
-            this.shadowRoot?.appendChild(log)
+            const reg = this.ownerDocument.createElement("input")
+            reg.placeholder = `${this.placeholder}`
+            reg.type = `${this.type}`
+            
+            const edit = this.ownerDocument.createElement("style");
+                edit.innerHTML = styles
+                this.shadowRoot?.appendChild(edit);
+                this.shadowRoot?.appendChild(reg)
+            
 
         }
     }
@@ -61,5 +62,5 @@ attributeChangedCallback(
 }
 
 
-customElements.define("email-pass",emailandpass);
-export default emailandpass;
+customElements.define("but-regis",regist);
+export default regist;
