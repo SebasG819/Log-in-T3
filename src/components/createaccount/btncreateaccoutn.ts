@@ -1,3 +1,4 @@
+import styles from "./btncra.css"
 class Btnaccount extends HTMLElement {
     
     
@@ -15,9 +16,12 @@ class Btnaccount extends HTMLElement {
             if (this.shadowRoot) {
                 this.shadowRoot.innerHTML = `
                 <section>
-                <button> Log in</button>
+                <button> Create account </button>
                 </section>
                 `;
+                const css = this.ownerDocument.createElement("style")
+                css.innerHTML = styles
+                this.shadowRoot?.appendChild(css)
             }
         }
     }

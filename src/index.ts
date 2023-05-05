@@ -14,7 +14,7 @@ class AppContainer extends HTMLElement {
     }
 
     render() {
-        const something = this.ownerDocument.createElement('form-log');
+        const something = this.ownerDocument.createElement('reg-ist');
         this.shadowRoot?.appendChild(something);
     }
 }
