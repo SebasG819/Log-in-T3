@@ -1,6 +1,7 @@
 import "./components/export"
 import "./components/Form/index"
 import "./components/Register/form2"
+import "./components/landing/landing"
 
 
 class AppContainer extends HTMLElement {
@@ -14,7 +15,7 @@ class AppContainer extends HTMLElement {
     }
 
     render() {
-        const something = this.ownerDocument.createElement('form-log');
+        const something = this.ownerDocument.createElement('land-ing');
         this.shadowRoot?.appendChild(something);
     }
 }
