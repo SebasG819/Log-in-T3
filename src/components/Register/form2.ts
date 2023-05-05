@@ -19,8 +19,13 @@ export class FormReg extends HTMLElement {
             if (this.shadowRoot) {
                 this.shadowRoot.innerHTML = ``;
 
+                const containerg = this.ownerDocument.createElement("section")
+                containerg.className = "big"
+
                 const container = this.ownerDocument.createElement("section")
                 container.className = "section1"
+                containerg.appendChild(container)
+
                 const css = this.ownerDocument.createElement("style")
                 css.innerHTML = styles
                 this.shadowRoot?.appendChild(css)
@@ -31,13 +36,18 @@ export class FormReg extends HTMLElement {
 
                 const img = this.ownerDocument.createElement("img")
             img.src="/src/image/Logito.png"
+            img.className = "img"
             container.appendChild(img)
 
-            
+            const mini = this.ownerDocument.createElement("section")
+                mini.className = "section3"
+                containerg.appendChild(mini)
 
             const ima = this.ownerDocument.createElement("img")
-            img.src="/src/image/counter-strike-2.png"
+            ima.src="/src/image/counter-strike-2.png"
             ima.className = "banner"
+            mini.appendChild(ima)
+
             
 
             
@@ -64,10 +74,8 @@ export class FormReg extends HTMLElement {
                 const button = this.ownerDocument.createElement("btn-account");
                  container.appendChild(button)
                 
-                this.shadowRoot?.appendChild(container)
-                
-
-
+                this.shadowRoot?.appendChild(containerg)
+        
 
             }
         }

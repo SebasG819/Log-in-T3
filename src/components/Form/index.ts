@@ -24,11 +24,17 @@ export class FormLog extends HTMLElement {
         render() {
             if (this.shadowRoot) {
                 this.shadowRoot.innerHTML = ``;
+
+                const containerg = this.ownerDocument.createElement("section")
+                containerg.className = "big"
+                
+
                 const container = this.ownerDocument.createElement("section")
                 container.className = "section1"
                 const css = this.ownerDocument.createElement("style")
                 css.innerHTML = styles
                 this.shadowRoot?.appendChild(css)
+                containerg.appendChild(container)
                 
 
                 const Login = this.ownerDocument.createElement("h1")
@@ -39,9 +45,10 @@ export class FormLog extends HTMLElement {
                 Check.innerText = "Check your followers' new plays"
                 container.appendChild(Check)
 
-                const img = this.ownerDocument.createElement("img")
-            img.src= "../../image/Logito"
-            container.appendChild(img)
+                const logo = this.ownerDocument.createElement("img")
+            logo.src="/src/image/Logito.png"
+            logo.className = "logo"
+            container.appendChild(logo)
 
 
                 pdata.forEach((dat) => {
@@ -53,14 +60,6 @@ export class FormLog extends HTMLElement {
 
 
                 })
-
-
-                
-                
-        
-
-                
-                
 
                 const ema = this.ownerDocument.createElement("h4")
                 ema.innerText = "Email"
@@ -81,50 +80,36 @@ export class FormLog extends HTMLElement {
                 password.setAttribute(attr.type, "password")
                 container.appendChild(password)
 
-                
-
-               
-                
-
-
             
                 const sec = this.ownerDocument.createElement("section")
                 sec.className = "section2"
-                this.shadowRoot?.appendChild(container)
+                this.shadowRoot?.appendChild(containerg)
                 const button = this.ownerDocument.createElement("my-butlogin");
                  button.className = "btn"
                  container.appendChild(button)
 
-                container.appendChild(sec)
-
-                const sec3 = this.ownerDocument.createElement("section")
-                sec.className = "section3"
-
+                containerg.appendChild(sec)
 
                 
-
-                 
-            
                 
+                const banner = this.ownerDocument.createElement("img")
+           banner.src="/src/image/BannerLogin.png"
+            banner.className = "banner"
+            sec.appendChild(banner)
+
+
 
                  const Notregis = this.ownerDocument.createElement("h5")
                  Notregis.innerText = "Not registered yet?"
                  Notregis.className = "Notregis"
-                 sec.appendChild(Notregis)
+                 container.appendChild(Notregis)
                  
  
                  const Notaccount = this.ownerDocument.createElement("h5")
                  Notaccount.innerText = "Create an Account"
                  Notaccount.className = "Notaccount"
-                 sec.appendChild(Notaccount)
+                 container.appendChild(Notaccount)
                 
-                 
-                 
-                
-                
-
-
-
             }
         }
     }
