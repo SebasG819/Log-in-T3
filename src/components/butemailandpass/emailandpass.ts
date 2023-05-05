@@ -1,61 +1,60 @@
-export enum Attribu {
-    "text" = "text",
-    "tittle" = "tittle"
-    
-    
+export enum attr {
+    "placeholder" = "placeholder",
+    "type" = "type",
 }
 
-class Btnpass extends HTMLElement {
-    text?: string;
-    tittle?: string;
-    
-    
-    static get observedAttributes() {
-        const attrs: Record<Attribu, null> = {
-        
-            text: null,
-            tittle: null
-            
-            
-        };
-        return Object.keys(attrs);
+  class emailandpass extends HTMLElement{
+    placeholder?: string;
+    type?: string;
+
+
+static get observedAttributes() {
+    const attr: Record<attr,null> ={
+
+        placeholder: null,
+        type: null,
+
+    };
+    return Object.keys(attr);
+}
+
+
+attributeChangedCallback(
+    propName: attr,
+    _: string | undefined,
+    newValue: string | undefined
+    ) {
+        switch (propName) {
+
+            default:
+            this[propName] = newValue;
+            break;
+        }
     }
-    
+
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
     }
-    
-    connectedCallback() {
+
+    connectedCallback(){
         this.render();
     }
-    
-    attributeChangedCallback(
-        propName: Attribu,
-        _: string | undefined,
-        newValue: string | undefined
-        ) {
-            switch (propName) {
-                
-                default:
-                this[propName] = newValue;
-                break;
-            }
-            
-            this.render();
-        }
-        
-        render() {
-            if (this.shadowRoot) {
-                this.shadowRoot.innerHTML = `
-                <section>
-                <h3>${this.tittle}</h3>
-                <input type="button" placeholder = "${this.text}">
-                </section>
-                `;
-            }
+
+    render(){
+        if(this.shadowRoot){
+            this.shadowRoot.innerHTML= "";
+
+            const log = this.ownerDocument.createElement("input")
+            log.placeholder = `${this.placeholder}`
+            log.type = `${this.type}`
+            this.shadowRoot?.appendChild(log)
+
         }
     }
-    
-customElements.define("btn-pass", Btnpass);
-export default Btnpass;
+
+}
+
+
+customElements.define("email-pass",emailandpass);
+export default emailandpass;

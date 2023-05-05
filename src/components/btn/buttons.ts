@@ -1,4 +1,4 @@
-
+import styles from "./button.css"
 export enum Attribut {
     "btn_img" = "btn_img",
     "name" = "name",
@@ -47,11 +47,14 @@ class Btnsec extends HTMLElement {
         render() {
             if (this.shadowRoot) {
                 this.shadowRoot.innerHTML = `
-                <link rel="stylesheet" href="./components/Side-profile/scard.css">
+                
                 <section>
                 <button><img src="${this.btn_img}">${this.name}</button>
                 </section>
                 `;
+                const css = this.ownerDocument.createElement("style")
+                css.innerHTML = styles
+                this.shadowRoot?.appendChild(css)
             }
         }
     }

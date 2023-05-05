@@ -1,0 +1,19 @@
+.section1{
+    background: linear-gradient(#A11FC1ff, #231843ff);
+    border-radius: 8px;
+}
+
+h1{
+    color: white;
+    font-size: 54px;
+}
+
+h2{
+    color: white;
+    font-size: 30px;
+}
+
+h4{
+    color: white;
+}
+
